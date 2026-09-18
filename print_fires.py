@@ -1,9 +1,42 @@
+import argparse
 from my_utils import get_column
 
-country = 'United States of America'
-country_column = 0
-fires_column = 4
-file_name = 'Agrofood_co2_emission.csv'
 
-fires = get_column(file_name, country_column, country, result_column=fires_column)
-print(fires)
+def main():
+    parser = argparse.ArgumentParser(
+        description="Get a column value for a given country from a CSV file."
+    )
+    parser.add_argument(
+        "country",
+        type=str,
+        help="Name of the country to look up (e.g. 'United States of America')"
+    )
+    parser.add_argument(
+        "country_column",
+        type=int,
+        help="Index of the column containing country names"
+    )
+    parser.add_argument(
+        "fires_column",
+        type=int,
+        help="Index of the column containing fire/emission data to retrieve"
+    )
+    parser.add_argument(
+        "file_name",
+        type=str,
+        help="Path to the CSV file"
+    )
+
+    args = parser.parse_args()
+
+    fires = get_column(
+        args.file_name,
+        args.country_column,
+        args.country,
+        result_column=args.fires_column
+    )
+    print(fires)
+
+
+if __name__ == "__main__":
+    main()
