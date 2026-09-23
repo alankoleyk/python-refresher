@@ -1,7 +1,7 @@
 import argparse
 from my_utils import get_column
 
-
+#Command-line tool to look up fire/emission data for a given country.
 def main():
     parser = argparse.ArgumentParser(
         description="Get a column value for a given country from a CSV file."

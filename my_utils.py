@@ -28,3 +28,17 @@ def get_column(file_name, query_column, query_value, result_column=1):
         print(f"Error: could not open '{file_name}': {e}")
 
     return results
+
+
+#statistics functions
+
+import numpy as np
+
+def find_mean(numbers):
+    return np.mean(numbers)
+
+def find_median(numbers):
+    return np.median(numbers)
+
+def find_std_dev(numbers):
+    return np.std(numbers, ddof=1) 
