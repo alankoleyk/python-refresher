@@ -1,7 +1,9 @@
 import argparse
+import statistics
 from my_utils import get_column
 
-#Command-line tool to look up fire/emission data for a given country.
+
+# Command-line tool to look up fire/emission data for a given country.
 def main():
     parser = argparse.ArgumentParser(
         description="Get a column value for a given country from a CSV file."
@@ -26,6 +28,13 @@ def main():
         type=str,
         help="Path to the CSV file"
     )
+    parser.add_argument(
+        "--operation",
+        type=str,
+        choices=["mean", "median", "std"],
+        help="Optional statistical operation to apply to the returned values "
+             "(mean, median, or std). If omitted, prints the raw values."
+    )
 
     args = parser.parse_args()
 
@@ -35,7 +44,15 @@ def main():
         args.country,
         result_column=args.fires_column
     )
-    print(fires)
+
+    if args.operation is None:
+        print(fires)
+    elif args.operation == "mean":
+        print(statistics.mean(fires))
+    elif args.operation == "median":
+        print(statistics.median(fires))
+    elif args.operation == "std":
+        print(statistics.stdev(fires))
 
 
 if __name__ == "__main__":
