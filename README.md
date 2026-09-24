@@ -1,3 +1,5 @@
 # python-refresher I have updated the my_utils.py and print_fires.py and made the run.sh file, and commited everything to my branch. huge shoutout claude for fixing my python script in my_utils
 
 8/17 updated the print_fires function with argparse and added exception handling to the my_utils.py. Run.sh now includes three examples, with only one of them working. One of them is calling a nonexistent file and one is out of index.
+
+9/24 The my_utils function can now calculate mean, median and stdev. There are tests in place for my_utils and for print fires, which can now also take flags to print out mean median and stdev,
