@@ -1,6 +1,11 @@
 test -e ssshtest || wget -q https://raw.githubusercontent.com/ryanlayer/ssshtest/master/ssshtest
 . ssshtest
 
+COUNTRY_COL=0
+EMISSION_COL=29
+DATA=test_fires.csv
+
+
 run test_exit_code_success python3 print_fires.py Afghanistan $COUNTRY_COL $EMISSION_COL $DATA
 assert_exit_code 0
  

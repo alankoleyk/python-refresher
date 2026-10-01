@@ -13,7 +13,7 @@ def get_column(file_name, query_column, query_value, result_column=1):
                 try:
                     if fields[query_column] == query_value:
                         try:
-                            results.append(int(float(fields[result_column])))
+                            results.append((float(fields[result_column])))
                         except ValueError:
                             print(f"Warning: could not convert '{fields[result_column]}' "
                                   f"to int on line {line_num}, skipping.")
