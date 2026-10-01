@@ -3,5 +3,6 @@ channels:
   - conda-forge
 dependencies:
   - pycodestyle
+  - numpy
 
 prefix: "/home/alan/miniforge3/envs/swe4s"
