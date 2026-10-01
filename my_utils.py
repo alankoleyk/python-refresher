@@ -1,3 +1,6 @@
+import numpy as np
+
+
 def get_column(file_name, query_column, query_value, result_column=1):
     results = []
 
@@ -15,10 +18,10 @@ def get_column(file_name, query_column, query_value, result_column=1):
                         try:
                             results.append((float(fields[result_column])))
                         except ValueError:
-                            print(f"Warning: could not convert '{fields[result_column]}' "
+                            print(f"Warning: could not convert '{fields[result_column]}' "  # noqa
                                   f"to int on line {line_num}, skipping.")
                 except IndexError:
-                    print(f"Warning: line {line_num} does not have enough columns, skipping.")
+                    print(f"Warning: line {line_num} does not have enough columns, skipping.")  # noqa
 
     except FileNotFoundError:
         print(f"Error: file '{file_name}' not found.")
@@ -30,15 +33,16 @@ def get_column(file_name, query_column, query_value, result_column=1):
     return results
 
 
-#statistics functions
+# statistics functions
 
-import numpy as np
 
 def find_mean(numbers):
     return np.mean(numbers)
 
+
 def find_median(numbers):
     return np.median(numbers)
 
+
 def find_std_dev(numbers):
-    return np.std(numbers, ddof=1) 
+    return np.std(numbers, ddof=1)

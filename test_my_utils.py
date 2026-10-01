@@ -4,7 +4,8 @@ import random
 import numpy as np
 from my_utils import find_mean, find_median, find_std_dev
 
-#test mean function
+# test mean function
+
 
 class TestFindMean(unittest.TestCase):
 
@@ -13,7 +14,7 @@ class TestFindMean(unittest.TestCase):
 
     def test_random_matches_statistics_module(self):
         data = [random.randint(-1000, 1000) for i in range(1000)]
-        self.assertAlmostEqual(find_mean(data), 0, delta = 50)
+        self.assertAlmostEqual(find_mean(data), 0, delta=50)
 
     def test_negative_numbers(self):
         self.assertEqual(find_mean([-10, -20, -30]), -20)
@@ -32,7 +33,7 @@ class TestFindMedian(unittest.TestCase):
 
     def test_random_matches_statistics_module(self):
         data = [random.randint(-500, 500) for i in range(1000)]
-        self.assertAlmostEqual(find_median(data), 0, delta = 50)
+        self.assertAlmostEqual(find_median(data), 0, delta=50)
 
     def test_negative_numbers(self):
         self.assertEqual(find_median([-5, -1, -10]), -5)
@@ -47,9 +48,8 @@ class TestFindStdDev(unittest.TestCase):
 
     def test_random_matches_statistics_module(self):
         data = [random.randint(1, 100) for _ in range(1000)]
-        self.assertAlmostEqual(find_std_dev(data), 29, delta = 3)
+        self.assertAlmostEqual(find_std_dev(data), 29, delta=3)
 
     def test_negative_numbers(self):
         data = [-10, -20, -30, -40]
-        self.assertAlmostEqual(find_std_dev(data), 12, delta = 1)
-
+        self.assertAlmostEqual(find_std_dev(data), 12, delta=1)
