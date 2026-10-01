@@ -1,6 +1,8 @@
 import argparse
 import statistics
 from my_utils import get_column
+import os
+import sys
 
 
 # Command-line tool to look up fire/emission data for a given country.
@@ -37,6 +39,10 @@ def main():
     )
 
     args = parser.parse_args()
+
+    if not os.path.isfile(args.file_name):
+        print(f"Error: file '{args.file_name}' not found.", file=sys.stderr)
+        sys.exit(1)
 
     fires = get_column(
         args.file_name,
